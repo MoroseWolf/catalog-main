@@ -27,8 +27,8 @@ export class CatalogService {
     return this.http.get<Product[]>(`${this.appUrl + this.apiUrl}`);
   }
 
-  deleteProduct(product: Product): any {
-    //return firebase.database().ref(`products/${product.name}`).remove();
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete(`${this.appUrl + this.apiUrl}/${id}`, {responseType: 'text'});
   }
 
 }

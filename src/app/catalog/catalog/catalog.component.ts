@@ -30,7 +30,13 @@ export class CatalogComponent implements OnInit {
       });
   }
 
-  deleteProduct(product: Product): void {
-    this.catalogService.deleteProduct(product);
+  deleteProduct(id: number): void {
+    this.catalogService.deleteProduct(id)
+    .subscribe(
+      data => {
+        this.loadProducts();
+      },
+      error => console.log(error)
+    );
   }
 }
