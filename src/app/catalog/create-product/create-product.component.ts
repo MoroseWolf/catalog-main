@@ -41,7 +41,17 @@ export class CreateProductComponent implements OnInit {
     let product: Product = {
       name, carbs, fats, proteins, calories, article
     };
-    this.catalogService.createProduct(product);
+    
+    this.catalogService.createProduct(product).subscribe(
+      data => {
+        this.product = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
     this.catalogForm.reset();
   }
+
 }

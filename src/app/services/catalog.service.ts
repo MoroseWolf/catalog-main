@@ -21,8 +21,8 @@ export class CatalogService {
 
   constructor(private http: HttpClient) { }
 
-  createProduct(product: Product): any {
-    //return firebase.database().ref(`products/${product.name}`).set(product);
+  createProduct(product: Product): Observable<any> {
+    return this.http.post(`${this.appUrl + this.apiUrl}`, product, this.httpOptions);  
   }
 
   getProducts(): Observable<Product[]> {
