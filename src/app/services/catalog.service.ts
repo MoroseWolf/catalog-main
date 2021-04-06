@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Product } from '../models.ts/products.model';
 import { Observable } from 'rxjs'
-import firebase from 'firebase/app';
-import 'firebase/database';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
