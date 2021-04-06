@@ -26,7 +26,7 @@ export class CatalogService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`http://localhost:8081/products`);
+    return this.http.get<Product[]>(`${this.appUrl + this.apiUrl}`);
   }
 
   deleteProduct(product: Product): any {
