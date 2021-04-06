@@ -17,7 +17,17 @@ export class CatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.catalogService.getProducts().then(products => this.products = products);
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.catalogService.getProducts().subscribe(
+      data => {
+        this.products = data;
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   deleteProduct(product: Product): void {
